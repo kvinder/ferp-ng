@@ -1,0 +1,60 @@
+<div class="hero-body">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-4 is-offset-4">
+        <h1 class="title">
+          Register an Account
+        </h1>
+        <div class="box">
+          <form (ngSubmit)="register()">
+            <label class="label">Name</label>
+            <p class="control">
+              <input class="input" type="text" placeholder="John Smith" name="inputName" [(ngModel)]="name" #inputName=ngModel required>
+            </p>
+            <label class="label">Username</label>
+            <p class="control">
+              <input class="input" type="text" placeholder="jsmith" name="inputUsername" [(ngModel)]="username" #inputUsername=ngModel
+                required>
+            </p>
+            <label class="label">Email</label>
+            <p class="control">
+              <input class="input" type="text" placeholder="jsmith@example.org" name="inputEmail" [(ngModel)]="email" #inputEmail=ngModel
+                required>
+            </p>
+            <label class="label">Department</label>
+            <div class="select is-fullwidth">
+              <select name="department" [(ngModel)]="department">
+                  <option value="MIS">MIS</option>
+                  <option value="QA">QA</option>
+                  <option value="Engineer">Engineer</option>
+                  <option value="Production">Production</option>
+                </select>
+            </div>
+            <hr>
+            <label class="label">Password</label>
+            <p class="control">
+              <input class="input" type="password" placeholder="●●●●●●●" name="inputPassword1" [(ngModel)]="password1" #inputPassword1=ngModel
+                required>
+            </p>
+            <label class="label">Confirm Password</label>
+            <p class="control">
+              <input class="input" type="password" placeholder="●●●●●●●" name="inputPassword2" [(ngModel)]="password2" #inputPassword2=ngModel
+                required>
+            </p>
+            <span class="help is-danger">{{errorMessage}}</span>
+            <hr>
+            <p class="control">
+              <button type="submit" class="button is-primary" type="submit" [disabled]="!inputName.valid ||
+              !inputUsername.valid || !inputEmail.valid || !inputPassword1.valid || !inputPassword2.valid">Register</button>
+              <button class="button is-default">Cancel</button>
+            </p>
+          </form>
+        </div>
+        <p class="has-text-centered">
+          <a [routerLink]="['/login']">Login</a> |
+          <a href="#">Need help?</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="hero-body">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-6 is-offset-3">
+        <h1 class="title">
+          Login
+        </h1>
+        <div class="box">
+          <form (ngSubmit)="login()">
+            <label class="label">Email</label>
+            <p class="control has-icon has-icon-right">
+              <input class="input" type="text" name="user" placeholder="jsmith@example.org" [(ngModel)]="username" #user=ngModel required>
+              <span class="icon is-small">
+                      <i class="fa fa-warning"></i>
+                    </span>
+            </p>
+            <label class="label">Password</label>
+            <p class="control has-icon has-icon-right">
+              <input class="input" type="password" name="pass" placeholder="●●●●●●●" [(ngModel)]="password" #pass=ngModel required>
+              <span class="icon is-small">
+                      <i class="fa fa-warning"></i>
+                    </span>
+              <span class="help is-danger">{{errorMessage}}</span>
+            </p>
+            <hr>
+            <p class="control">
+              <button class="button is-primary" type="submit" [disabled]="!user.valid || !pass.valid">Login</button>
+            </p>
+          </form>
+        </div>
+        <p class="has-text-centered">
+          <a [routerLink]="['/register']">Register an Account</a> |
+          <a href="#">Forgot password</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
